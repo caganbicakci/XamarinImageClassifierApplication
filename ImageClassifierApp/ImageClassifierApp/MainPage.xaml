@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:ImageClassifierApp"
+             x:Class="ImageClassifierApp.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:MainViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Margin="10">
+
+        <Frame BorderColor="LightGray" Padding="0">
+            <Image x:Name="Image" WidthRequest="400" HeightRequest="400" Aspect="AspectFill" HorizontalOptions="CenterAndExpand" Source="{Binding Image}"/>
+        </Frame>
+        
+        
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10,0,0">
+            <Button x:Name="TakePhotoBtn" Text="Take a photo" WidthRequest="120" CornerRadius="10" BackgroundColor="LimeGreen" TextColor="White" Command="{Binding TakePhotoCommand}"/>
+            <Button x:Name="ClassifyBtn" Text="Classify"  WidthRequest="120" CornerRadius="10" Background="LimeGreen" TextColor="White" />
+        </StackLayout>
+
+        <Frame Padding="0" HeightRequest="150" Margin="0,10,0,0" BorderColor="LightGray">
+            <StackLayout>
+                <Label Text="Classify Result:" HorizontalOptions="Center" VerticalOptions="Start" Margin="10" FontSize="20"/>
+                <Label Text="{Binding Tag}" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </StackLayout>
+            
+        </Frame>
+
+    </StackLayout>
+
+</ContentPage>
